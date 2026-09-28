@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Notebook",
+    "price": 80,
+    "category": "Stationery"
+  },
+  {
+    "id": 2,
+    "name": "Water Bottle",
+    "price": 350,
+    "category": "Accessories"
+  },
+  {
+    "id": 3,
+    "name": "Mug",
+    "price": "200",
+    "category": "Kitchen"
+  }
+]
