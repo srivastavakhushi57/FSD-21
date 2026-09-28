@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff9f7" />
+    <title>Campus Help Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Campus Help Desk home">
+          <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 12.5 16 6l11 6.5v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M12 26V16h8v10M3 13l13-8 13 8"/></svg></span>
+          <span><strong>Campus</strong><small>HELP DESK</small></span>
+        </a>
+        <div class="topbar-meta"><span class="live-dot"></span><span>STUDENT SERVICES</span><span class="meta-divider"></span><span id="today-label"></span></div>
+      </header>
+
+      <main>
+        <section class="page-intro">
+          <div class="intro-copy">
+            <p class="overline"><span>01</span> YOUR CAMPUS, TAKEN CARE OF</p>
+            <h1>Something<br />needs a <em>hand?</em></h1>
+            <p class="intro-description">Tell us what's happening. We'll get the right people on it.</p>
+          </div>
+          <div class="intro-aside" aria-hidden="true"><span class="aside-line"></span><span class="aside-number">01 <i>/</i> 03</span><span class="aside-label">REPORT<br />TRACK<br />RESOLVE</span></div>
+          <div class="intro-stats" aria-label="Request summary">
+            <div><span class="stat-number" id="open-count">0</span><span class="stat-label">OPEN</span></div>
+            <div><span class="stat-number" id="progress-count">0</span><span class="stat-label">IN PROGRESS</span></div>
+            <div><span class="stat-number" id="resolved-count">0</span><span class="stat-label">RESOLVED</span></div>
+          </div>
+        </section>
+
+        <div class="content-grid">
+          <section class="form-section" aria-labelledby="form-title">
+            <div class="section-heading">
+              <div><p class="overline"><span>01</span> NEW TICKET</p><h2 id="form-title">Submit a request</h2></div>
+              <span class="required-note"><b>*</b> REQUIRED</span>
+            </div>
+            <form id="request-form">
+              <label class="field"><span>STUDENT NAME <b>*</b></span><input name="studentName" type="text" placeholder="Your full name" maxlength="80" autocomplete="name" required /></label>
+              <label class="field"><span>EMAIL ADDRESS <b>*</b></span><input name="email" type="email" placeholder="you@college.edu" maxlength="120" autocomplete="email" required /></label>
+              <label class="field"><span>CATEGORY <b>*</b></span><select name="category" required><option value="" disabled selected>Select a department</option><option>Facilities &amp; Maintenance</option><option>IT &amp; Wi-Fi</option><option>Housing &amp; Residence</option><option>Food &amp; Dining</option><option>Academic Support</option><option>Safety &amp; Security</option><option>Other</option></select></label>
+              <label class="field"><span>PRIORITY</span><select name="priority"><option>Low</option><option selected>Medium</option><option>High</option><option>Urgent</option></select></label>
+              <label class="field field-wide"><span>WHAT'S THE ISSUE? <b>*</b></span><textarea name="description" placeholder="Share the details that will help us sort this out..." rows="4" maxlength="1000" required></textarea><small class="character-count"><span id="character-count">0</span> / 1000</small></label>
+              <div class="form-actions field-wide"><button class="submit-button" type="submit"><span id="submit-label">Send request</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6"/></svg></button><button class="cancel-button" id="cancel-edit" type="button" hidden>Cancel edit</button><span class="form-message" id="form-message" role="status"></span></div>
+            </form>
+            <div class="privacy-note"><span class="privacy-icon" aria-hidden="true">i</span><span>Your contact details are only shared with the team handling this request.</span></div>
+          </section>
+
+          <section class="requests-section" aria-labelledby="requests-title">
+            <div class="section-heading request-heading">
+              <div><p class="overline"><span>02</span> THE QUEUE</p><h2 id="requests-title">Recent requests <span class="request-total" id="request-total">0</span></h2></div>
+              <button class="icon-button" id="refresh-button" type="button" aria-label="Refresh requests" title="Refresh"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16 7a6.5 6.5 0 0 0-11-2L3 7m0-4v4h4M4 13a6.5 6.5 0 0 0 11 2l2-2m0 4v-4h-4"/></svg></button>
+            </div>
+            <div class="request-toolbar">
+              <label class="search-box"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.8"/><path d="m13 13 4 4"/></svg><input id="search-input" type="search" placeholder="Find a request" aria-label="Search requests" /></label>
+              <label class="filter-select"><span class="visually-hidden">Filter requests by status</span><select id="status-filter"><option value="All">All statuses</option><option>Open</option><option>In progress</option><option>Resolved</option></select></label>
+            </div>
+            <div class="request-list" id="request-list" aria-live="polite"><div class="loading-state"><span class="loader"></span> Loading requests...</div></div>
+            <p class="queue-footnote"><span class="live-dot"></span> Updates are saved automatically</p>
+          </section>
+        </div>
+      </main>
+
+      <footer><span>Campus Help Desk</span><span>HERE TO HELP YOU GET BACK TO IT.</span></footer>
+    </div>
+  </body>
+</html>
