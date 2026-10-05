@@ -1,0 +1,16 @@
+Express.js - Draft Notes
+
+Status: Draft
+
+Express is a web framework for Node.js that helps organize HTTP routes and middleware.
+
+Routes
+A route matches an HTTP method and path, then sends a response. Common methods include GET for reading and POST for submitting data.
+
+Middleware
+Middleware functions can inspect or modify a request, send a response, or pass control to the next middleware. Examples include JSON parsing, logging, and authentication.
+
+Static files
+express.static(directory) serves files such as CSS, images, and documents from a directory.
+
+Review and expand these draft notes before submission.

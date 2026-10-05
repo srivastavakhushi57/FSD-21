@@ -1,0 +1,21 @@
+React - Draft Notes
+
+Status: Draft
+
+What is React?
+React is a JavaScript library for building user interfaces from reusable components.
+
+Components
+A component is a reusable piece of UI. React components are commonly written as JavaScript functions that return JSX.
+
+Props and state
+- Props pass data from a parent component to a child component.
+- State stores values that can change while the app is running. Updating state causes React to render the updated UI.
+
+Example
+
+    function Greeting({ name }) {
+      return <h1>Hello, {name}</h1>;
+    }
+
+Review and expand these draft notes before submission.

@@ -1,0 +1,18 @@
+MongoDB - Draft Notes
+
+Status: Draft
+
+MongoDB is a document database. It stores records as BSON documents grouped into collections.
+
+Document structure
+Documents contain field-value pairs and can include nested objects and arrays. A collection groups documents with related purposes.
+
+CRUD operations
+- Create inserts a document.
+- Read finds documents that match a query.
+- Update changes selected fields or documents.
+- Delete removes documents.
+
+Indexes can speed up common queries. Choose indexes based on how the application reads its data.
+
+Review and expand these draft notes before submission.

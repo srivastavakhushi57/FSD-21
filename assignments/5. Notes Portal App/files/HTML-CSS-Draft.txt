@@ -1,0 +1,19 @@
+HTML and CSS - Draft Notes
+
+Status: Draft
+
+HTML structure
+HTML gives content meaning and structure. Use semantic elements such as header, nav, main, section, article, and footer where they fit.
+
+CSS box model
+Every element is laid out as content, padding, border, and margin. The border-box sizing model makes declared dimensions include padding and border.
+
+Layout
+- Flexbox is useful for arranging items along one dimension.
+- CSS Grid is useful for layouts with rows and columns.
+- Media queries adapt a layout to available screen width.
+
+Accessibility
+Use labels for form controls, meaningful link text, sufficient contrast, and a logical heading order.
+
+Review and expand these draft notes before submission.

@@ -1,0 +1,23 @@
+FSD Node.js - Draft Notes
+
+Status: Draft
+
+What is Node.js?
+Node.js is a JavaScript runtime that runs JavaScript outside a web browser. It is often used to create web servers and APIs.
+
+What is Express?
+Express is a web framework for Node.js. It makes it easier to define routes and handle HTTP requests and responses.
+
+Basic Express server
+
+    import express from "express";
+    const app = express();
+    app.get("/", (req, res) => res.send("Hello"));
+    app.listen(5000);
+
+Key terms
+- Route: a URL and HTTP method handled by the server.
+- Middleware: a function that runs during the request-response cycle.
+- Static file: a file served directly, such as an image or PDF.
+
+Review and expand these draft notes before submission.

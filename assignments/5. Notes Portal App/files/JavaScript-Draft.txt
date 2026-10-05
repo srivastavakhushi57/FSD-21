@@ -1,0 +1,23 @@
+JavaScript - Draft Notes
+
+Status: Draft
+
+JavaScript adds behavior to web pages and can also run on a server with Node.js.
+
+Core concepts
+- Use const for bindings that are not reassigned and let for bindings that are.
+- Functions package reusable behavior; arrow functions are a concise function form.
+- Arrays store ordered values and provide methods such as map, filter, and find.
+- Objects group related values under named properties.
+
+Asynchronous work
+Promises represent work that may complete later. async functions return promises, and await makes promise-based code easier to read.
+
+Example
+
+    async function loadItems() {
+      const response = await fetch("/api/items");
+      return response.json();
+    }
+
+Review and expand these draft notes before submission.

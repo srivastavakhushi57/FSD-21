@@ -1,0 +1,17 @@
+Node.js - Draft Notes
+
+Status: Draft
+
+Node.js is a JavaScript runtime built on the V8 engine. It is used for command-line tools, web servers, and APIs.
+
+Modules and packages
+- Modules split an application into reusable files.
+- npm installs and manages packages for a project.
+- package.json records project metadata, dependencies, and scripts.
+
+Event loop
+Node.js handles many I/O operations asynchronously. This lets a server continue processing other work while waiting for file or network operations.
+
+Common built-in modules include fs for file operations, path for file paths, and http for low-level web servers.
+
+Review and expand these draft notes before submission.

@@ -1,0 +1,15 @@
+Notes Portal - Draft Notes
+
+Topic: Full-Stack Development
+Status: Draft
+
+Node.js
+Node.js lets JavaScript run outside the browser. It is commonly used to build server-side applications and APIs.
+
+Express
+Express is a Node.js web framework. It provides routes for handling requests and middleware for processing them.
+
+React
+React is a JavaScript library for building user interfaces from reusable components. Component state can keep the interface in sync with user input.
+
+This file is a sample draft for testing the Notes Portal download button.
