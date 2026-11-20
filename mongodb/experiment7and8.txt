@@ -1,0 +1,159 @@
+Microsoft Windows [Version 10.0.26200.9974]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Khushi Srivastava>mongosh
+Current Mongosh Log ID: 6b0020e87b025d9a7c6275bd
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.14.1
+Using MongoDB:          9.0.4
+Using Mongosh:          2.14.1
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+
+To help improve our products, pseudo-anonymous usage data is collected from interactive and agentic sessions only, and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2026-11-16T09:27:07.585+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use studentDB
+switched to db studentDB
+studentDB> db.createCollection("students")
+{ ok: 1 }
+studentDB> show collections
+students
+studentDB> show dbs
+admin      40.00 KiB
+config     12.00 KiB
+local      40.00 KiB
+studentDB   8.00 KiB
+studentDB> db.students.insertOne({
+|     name: "Khushi",
+|     age: 20,
+|     course: "CSE"
+| })
+{
+  acknowledged: true,
+  insertedId: ObjectId('6b0021827b025d9a7c6275be')
+}
+studentDB> db.students.insertMany([
+|     {
+|         rollNo: 1,
+|         name: "Khushi",
+|         age: 20,
+|         course: "CSE"
+|     },
+|     {
+|         rollNo: 2,
+|         name: "Rahul",
+|         age: 21,
+|         course: "CSE"
+|     },
+|     {
+|         rollNo: 3,
+|         name: "Priya",
+|         age: 20,
+|         course: "IT"
+|     },
+|     {
+|         rollNo: 4,
+|         name: "Aman",
+|         age: 22,
+|         course: "ECE"
+|     },
+|     {
+|         rollNo: 5,
+|         name: "Sneha",
+|         age: 21,
+|         course: "CSE"
+|     }
+| ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6b0022297b025d9a7c6275bf'),
+    '1': ObjectId('6b0022297b025d9a7c6275c0'),
+    '2': ObjectId('6b0022297b025d9a7c6275c1'),
+    '3': ObjectId('6b0022297b025d9a7c6275c2'),
+    '4': ObjectId('6b0022297b025d9a7c6275c3')
+  }
+}
+studentDB> db.students.find({age: {$gt: 20}})
+[
+  {
+    _id: ObjectId('6b0022297b025d9a7c6275c0'),
+    rollNo: 2,
+    name: 'Rahul',
+    age: 21,
+    course: 'CSE'
+  },
+  {
+    _id: ObjectId('6b0022297b025d9a7c6275c2'),
+    rollNo: 4,
+    name: 'Aman',
+    age: 22,
+    course: 'ECE'
+  },
+  {
+    _id: ObjectId('6b0022297b025d9a7c6275c3'),
+    rollNo: 5,
+    name: 'Sneha',
+    age: 21,
+    course: 'CSE'
+  }
+]
+studentDB> db.students.updateOne(
+|   {name: "Rahul"},
+|   {$set: {age: 23}}
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+studentDB> db.students.deleteOne({name: "Aman"})
+{ acknowledged: true, deletedCount: 1 }
+studentDB> db.students.find()
+[
+  {
+    _id: ObjectId('6b0021827b025d9a7c6275be'),
+    name: 'Khushi',
+    age: 20,
+    course: 'CSE'
+  },
+  {
+    _id: ObjectId('6b0022297b025d9a7c6275bf'),
+    rollNo: 1,
+    name: 'Khushi',
+    age: 20,
+    course: 'CSE'
+  },
+  {
+    _id: ObjectId('6b0022297b025d9a7c6275c0'),
+    rollNo: 2,
+    name: 'Rahul',
+    age: 23,
+    course: 'CSE'
+  },
+  {
+    _id: ObjectId('6b0022297b025d9a7c6275c1'),
+    rollNo: 3,
+    name: 'Priya',
+    age: 20,
+    course: 'IT'
+  },
+  {
+    _id: ObjectId('6b0022297b025d9a7c6275c3'),
+    rollNo: 5,
+    name: 'Sneha',
+    age: 21,
+    course: 'CSE'
+  }
+]
+studentDB> db.students.countDocuments()
+5
+studentDB>
